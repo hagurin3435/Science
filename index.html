@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>自然科学学習サイト | Science Blue</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$','$'], ['\\(','\\)']] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>自然科学学習サイト</h1>
+      <p>中高生向けデジタル図鑑・学習プラットフォーム</p>
+      <nav>
+        <a href="#top">TOP</a>
+        <a href="#sitemap">サイトマップ</a>
+        <a href="#fields">分野別</a>
+        <a href="#materials">資料室</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="top" class="card">
+      <h2>TOPページ</h2>
+      <p>最新更新記事と主要分野への導線をまとめた入口ページです。</p>
+      <div class="grid two-col">
+        <article>
+          <h3>最新更新</h3>
+          <ul>
+            <li>力学：運動方程式の基礎</li>
+            <li>化学：酸化還元反応の整理</li>
+            <li>生物：DNA複製の仕組み</li>
+            <li>地学：前線と天気図の読み方</li>
+          </ul>
+        </article>
+        <article>
+          <h3>学問分野</h3>
+          <ul>
+            <li><a href="#physics">物理学</a></li>
+            <li><a href="#chemistry">化学</a></li>
+            <li><a href="#biology">生物学</a></li>
+            <li><a href="#earth">地学</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="sitemap" class="card">
+      <h2>サイトマップ</h2>
+      <div class="grid four-col sitemap">
+        <div>
+          <h3>TOP</h3>
+          <p>最新記事 / 分野リンク</p>
+        </div>
+        <div>
+          <h3>分野別ページ</h3>
+          <p>物理・化学・生物・地学</p>
+        </div>
+        <div>
+          <h3>資料室</h3>
+          <p>定数表 / 周期表 / 公式集</p>
+        </div>
+        <div>
+          <h3>コラム</h3>
+          <p>科学史・偉人紹介</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="fields" class="card">
+      <h2>分野別ページ（図鑑スタイル）</h2>
+      <div class="grid two-col">
+        <article id="physics" class="field">
+          <h3>物理学</h3>
+          <p>力学・電磁気学・波動・熱力学・原子を扱います。</p>
+          <p><strong>主要公式:</strong> $F=ma$ , $E=mc^2$</p>
+          <p><strong>学習ロードマップ:</strong> 中学の運動→高校力学→電磁気→量子・原子</p>
+        </article>
+
+        <article id="chemistry" class="field">
+          <h3>化学</h3>
+          <p>理論化学・無機化学・有機化学を扱います。</p>
+          <p><strong>主要公式:</strong> $n=\frac{m}{M}$ , $PV=nRT$</p>
+          <p><strong>学習ロードマップ:</strong> 物質量→化学反応式→平衡→有機反応</p>
+        </article>
+
+        <article id="biology" class="field">
+          <h3>生物学</h3>
+          <p>細胞・代謝・遺伝・進化・生態系を扱います。</p>
+          <p><strong>主要概念:</strong> セントラルドグマ / 自然選択</p>
+          <p><strong>学習ロードマップ:</strong> 細胞→代謝→遺伝→進化→生態</p>
+        </article>
+
+        <article id="earth" class="field">
+          <h3>地学</h3>
+          <p>地質・気象・天文・海洋を扱います。</p>
+          <p><strong>主要公式:</strong> $v=H_0d$（ハッブルの法則）</p>
+          <p><strong>学習ロードマップ:</strong> 地球構造→気象→天体→海洋循環</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>主要公式とグラフ（サンプル）</h2>
+      <p>運動方程式 $F=ma$ を、質量一定（$m=2$）として可視化。</p>
+      <div class="chart-wrap">
+        <canvas id="forceChart" aria-label="運動方程式グラフ"></canvas>
+      </div>
+    </section>
+
+    <section id="materials" class="card">
+      <h2>資料室</h2>
+      <ul>
+        <li>物理定数表（光速・重力加速度・プランク定数 など）</li>
+        <li>周期表（族・周期別の性質）</li>
+        <li>重要公式集（分野別）</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>コラム</h2>
+      <p>ニュートン、キュリー、ダーウィン、ウェゲナーなど、科学史を動かした人物を紹介します。</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© 2026 Science Blue Learning</small>
+    </div>
+  </footer>
+
+  <script>
+    const ctx = document.getElementById('forceChart');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['0', '1', '2', '3', '4', '5'],
+          datasets: [{
+            label: '力 F (m=2, F=2a)',
+            data: [0, 2, 4, 6, 8, 10],
+            borderColor: '#1f6fd6',
+            backgroundColor: 'rgba(31,111,214,0.2)',
+            fill: true,
+            tension: 0.25
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { title: { display: true, text: '加速度 a' } },
+            y: { title: { display: true, text: '力 F' } }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
