@@ -1,0 +1,81 @@
+:root {
+  --science-blue: #1f6fd6;
+  --science-blue-dark: #11418a;
+  --bg: #f3f8ff;
+  --card: #ffffff;
+  --text: #17324d;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--science-blue-dark), var(--science-blue));
+  color: white;
+  padding: 2.2rem 0;
+}
+
+.hero h1 { margin: 0 0 .4rem; }
+.hero nav {
+  margin-top: 1rem;
+  display: flex;
+  gap: .8rem;
+  flex-wrap: wrap;
+}
+.hero a {
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 999px;
+  padding: .35rem .8rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1.2rem;
+  margin: 1rem 0;
+  box-shadow: 0 8px 24px rgba(18, 65, 138, 0.08);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+.two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.four-col { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.field {
+  border: 1px solid #d8e6fb;
+  border-radius: 10px;
+  padding: 0.9rem;
+}
+
+.chart-wrap {
+  width: 100%;
+  height: 320px;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 0 2rem;
+  color: #456;
+}
+
+@media (max-width: 900px) {
+  .two-col,
+  .four-col {
+    grid-template-columns: 1fr;
+  }
+}
